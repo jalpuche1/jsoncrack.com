@@ -6,15 +6,7 @@ import { isContentImage } from "../lib/utils/calculateNodeSize";
 import { TextRenderer } from "./TextRenderer";
 import * as Styled from "./styles";
 
-const StyledTextNodeWrapper = styled.span<{ $isParent: boolean }>`
-  display: flex;
-  justify-content: ${({ $isParent }) => ($isParent ? "center" : "flex-start")};
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  padding: 0 10px;
-`;
+// Removed StyledTextNodeWrapper - now using Styled components from styles.tsx
 
 const StyledImageWrapper = styled.div`
   padding: 5px;
@@ -24,6 +16,16 @@ const StyledImage = styled.img`
   border-radius: 2px;
   object-fit: contain;
   background: ${({ theme }) => theme.BACKGROUND_MODIFIER_ACCENT};
+`;
+
+const StyledTextNodeWrapper = styled.span<{ $isParent: boolean }>`
+  display: flex;
+  justify-content: ${({ $isParent }) => ($isParent ? "center" : "flex-start")};
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 10px;
 `;
 
 const Node = ({ node, x, y }: CustomNodeProps) => {
